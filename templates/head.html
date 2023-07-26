@@ -1,15 +1,15 @@
 {% load static %}
 <div class="head">
-    <div style="width: 70%;">
+    <div class="row" style="width: 70%;">
 
-        <div class="logo">
+        <div class="col-sm-12 col-md-9 logo">
             <div>
                 <a href="{% url 'accueil' %}"><i style="font-size: 60px;" class="fa-sharp fa-solid fa-building"></i> PolyAppart</a>
             </div>
         </div>
 
 
-        <div class="nav">
+        <div class="col-sm-12 col-md-3 nav">
             <div>
                 <div class="a"><a href="{% url 'profil' %}"><i class="fa-regular fa-circle-user"></i></a> </div>
                 <div class="a"><a href="{% url 'ajouter_appartement' %}">+Appartement</a> </div>

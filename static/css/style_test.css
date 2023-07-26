@@ -104,15 +104,13 @@ a:hover{
     
 }
 
-.row{
-    display: flex;
-    justify-content: space-around;
-}
+
 
 .row > div{
-    width: 30%;
+    
     margin-top: 10px;
     margin-bottom: 20px;
+    background-color: red;
 }
 
 .row1{
@@ -140,7 +138,7 @@ a:hover{
 }
 
 .prix{
-    margin-top: 190px;
+    margin-top: 55%;
     color: white
 }
 
