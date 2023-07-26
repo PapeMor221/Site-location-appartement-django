@@ -213,15 +213,13 @@ a:hover{
     justify-content: space-between;
 }
 
-.detail{
-    width: 70%;
-}
+
 
 .contact{
-    width: 26%;
+    
     background-color: white;
     padding-top: 20px;
-    height: 625px;
+    
 }
 
 .proprietaire_profil{
@@ -251,7 +249,7 @@ a:hover{
 
 .devices{
     background-color: white;
-    height: 200px;
+    
     margin-top: 50px;
     padding: 50px;
 }
@@ -264,20 +262,20 @@ a:hover{
 
 .describe{
     background-color: white;
-    height: 400px;
+    
     margin-top: 50px;
     padding: 50px;
 }
 
 .adresse_{
     background-color: white;
-    height: 230px;
+    
     margin-top: 50px;
     padding: 30px; 
 }
 
 .adresse_ > div {
-    width: 50%;
+    width: 100%;
 }
 
 .mon_profil{

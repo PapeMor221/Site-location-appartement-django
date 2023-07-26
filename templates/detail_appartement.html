@@ -8,17 +8,17 @@
 
 <div class="detail_appartement">
 
-  <div class="nom_prix">
-    <div>{{ appartement.nom }}</div>
-    <div>{{ appartement.prix }} Fcfa / Mois</div>
+  <div class="row nom_prix">
+    <div class="col-sm-12 col-md-6">{{ appartement.nom }}</div>
+    <div class="col-sm-12 col-md-6">{{ appartement.prix }} Fcfa / Mois</div>
   </div>
 
   <div style="margin-top: 20px; margin-bottom: 20px;" >
     <i style="font-size: 20px;" class="fa-solid fa-location-dot"></i> {{ appartement.adresse }}
   </div>
 
-  <div class="det_app">
-    <div class="detail">
+  <div class="row det_app">
+    <div class="col-sm-12 col-md-8 detail">
 
       <div>
         <img src="{{ appartement.profil_photo.url }}" class="card-img" alt="...">
@@ -27,11 +27,11 @@
       <div class="devices">
         <span style="font-size: 20px; font-weight: 700;">Details </span>
         <hr>
-        <div>
-          <div><i style="font-size: 20px;" class="fa-solid fa-bed"></i> <span style="color: black;"> {{ appartement.nombre_chambres }}</span>  <br> Chambre</div>
-          <div><i style="font-size: 20px;" class="fa-solid fa-bath"></i> <span style="color: black;"> {{ appartement.salle_de_bain }} </span> <br> Salle de Bain</div>
-          <div><i style="font-size: 20px;" class="fa-solid fa-car"></i> <span style="color: black;"> {{ appartement.garrage }}</span>  <br> Garage</div>
-          <div><i class="fa-sharp fa-solid fa-apartment"></i><span style="color: black;">{{ appartement.taille }} M² </span> <br> Taille </div>          
+        <div class="row">
+          <div class="col-sm-6 col-md-3"><i style="font-size: 20px;" class="fa-solid fa-bed"></i> <span style="color: black;"> {{ appartement.nombre_chambres }}</span>  <br> Chambre</div>
+          <div class="col-sm-6 col-md-3"><i style="font-size: 20px;" class="fa-solid fa-bath"></i> <span style="color: black;"> {{ appartement.salle_de_bain }} </span> <br> Salle de Bain</div>
+          <div class="col-sm-6 col-md-3"><i style="font-size: 20px;" class="fa-solid fa-car"></i> <span style="color: black;"> {{ appartement.garrage }}</span>  <br> Garage</div>
+          <div class="col-sm-6 col-md-3"><i class="fa-sharp fa-solid fa-apartment"></i><span style="color: black;">{{ appartement.taille }} M² </span> <br> Taille </div>          
         </div>
 
       </div>
@@ -56,15 +56,15 @@
       
     </div>
 
-    <div class="contact">
+    <div class="col-sm-12 col-md-4 contact">
 
       <div class="proprietaire_profil">
         <div class="card mb-3" style="max-width: 540px; border: none;">
           <div class="row g-0">
-            <div class="col-md-5">
+            <div class="col-sm-12 col-md-12">
               <img src="{{ appartement.proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-7 mb-3" >
+            <div class="col-sm-12 col-md-12 mb-3" >
               <div class="card-body">
                 <p style="font-weight: 700;" class="card-title">{{ appartement.proprietaire.nom }}</p> 
                 <a href="{% url 'visit_profil' appartement.proprietaire.id %}">Voir Le Profil</a>
