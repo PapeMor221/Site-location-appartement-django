@@ -1,0 +1,1 @@
+web: gunicorn PolyAppart.wsgi --log-file -

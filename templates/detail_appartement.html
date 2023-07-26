@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<div style="background-color: #F7F8F9;">
+
+<div class="detail_appartement">
+
+  <div class="nom_prix">
+    <div>{{ appartement.nom }}</div>
+    <div>{{ appartement.prix }} Fcfa / Mois</div>
+  </div>
+
+  <div style="margin-top: 20px; margin-bottom: 20px;" >
+    <i style="font-size: 20px;" class="fa-solid fa-location-dot"></i> {{ appartement.adresse }}
+  </div>
+
+  <div class="det_app">
+    <div class="detail">
+
+      <div>
+        <img src="{{ appartement.profil_photo.url }}" class="card-img" alt="...">
+      </div>
+
+      <div class="devices">
+        <span style="font-size: 20px; font-weight: 700;">Details </span>
+        <hr>
+        <div>
+          <div><i style="font-size: 20px;" class="fa-solid fa-bed"></i> <span style="color: black;"> {{ appartement.nombre_chambres }}</span>  <br> Chambre</div>
+          <div><i style="font-size: 20px;" class="fa-solid fa-bath"></i> <span style="color: black;"> {{ appartement.salle_de_bain }} </span> <br> Salle de Bain</div>
+          <div><i style="font-size: 20px;" class="fa-solid fa-car"></i> <span style="color: black;"> {{ appartement.garrage }}</span>  <br> Garage</div>
+          <div><i class="fa-sharp fa-solid fa-apartment"></i><span style="color: black;">{{ appartement.taille }} M² </span> <br> Taille </div>          
+        </div>
+
+      </div>
+
+      <div class="describe">
+        <span style="font-size: 20px; font-weight: 700;">desscription</span>
+        <hr>
+        {{ appartement.description }}
+      </div>
+
+      <div class="adresse_">
+        <span style="font-size: 20px; font-weight: 700;color: black;">Adresse</span>
+        <hr>
+        <div>
+          <div style="display: flex; justify-content: space-between;"><div style="color: black; font-size: 16px; font-weight: 700;">Adress</div> <div>{{ appartement.adresse }}</div> </div>
+          <hr>
+          <div style="display: flex; justify-content: space-between;"><div style="color: black; font-size: 16px; font-weight: 700;">Ville</div> <div>{{ appartement.ville }}</div> </div>          
+        </div>
+
+      </div>
+      
+      
+    </div>
+
+    <div class="contact">
+
+      <div class="proprietaire_profil">
+        <div class="card mb-3" style="max-width: 540px; border: none;">
+          <div class="row g-0">
+            <div class="col-md-5">
+              <img src="{{ appartement.proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-7 mb-3" >
+              <div class="card-body">
+                <p style="font-weight: 700;" class="card-title">{{ appartement.proprietaire.nom }}</p> 
+                <a href="{% url 'visit_profil' appartement.proprietaire.id %}">Voir Le Profil</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form method="POST" action="{% url 'detail_appartement' appartement.id %}">
+        {% csrf_token %}
+
+        <div class="form-group"> 
+          <input placeholder="Nom" type="text" name="Nom" id="id_Nom" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <input placeholder="Email" type="email" name="email" id="id_email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+          <input placeholder="Phone" type="text" name="telephone" id="id_telephone" class="form-control" required>
+        </div>   
+
+        <div class="form-group">
+          <textarea style="margin-left: 0px;" name="contenu" cols="27" rows="4"></textarea>
+        </div>   
+
+        <div style="margin-top: 40px;">
+          
+          <div><button class="btn" type="submit">Send Message</button></div>
+          
+        </div>
+      
+      </form>      
+    </div>
+ 
+  </div>
+
+</div>
+
+</div>
+{% endblock content %}

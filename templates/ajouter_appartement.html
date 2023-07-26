@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  
+{% load static %}
+
+
+<div class="ajout_app">
+
+  <div class="ajout_app_containt">
+
+    <form method="POST" action="{% url 'ajouter_appartement' %}" enctype="multipart/form-data" class="ajout_app_form">
+      {% csrf_token %}
+
+      <h3>Ajouter Votre Appartement</h3>
+      <div id="trait"></div>
+
+      <div>
+        <label for="id_username">Ville</label>
+        <input placeholder="Veuillez entrer la ville" type="text" name="ville" id="ville" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_username">Adresse exacte</label>
+        <input placeholder="Adress" type="text" name="adresse" id="adresse" class="form-control" required>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between align-items-center ins1_form">
+        <div>
+          <label for="prix">Nom</label>
+          <input placeholder="Nom" type="text" name="nom" id="nom" class="form-control" required>
+        </div>
+
+        <div>
+          <label for="prix">Prix :</label>
+          <input placeholder="Prix" type="number" name="prix" id="prix" class="form-control" required>
+        </div>
+      </div>
+
+      <div class="d-flex flex-row justify-content-between align-items-center ins1_form">
+        <div>
+          <label for="taille">Taille en M²</label>
+          <input placeholder="Veuillez entrer la taille" type="text" name="taille" id="taille" class="form-control" required>
+        </div>
+
+        <div>
+          <label for="id_telephone">Nombre de Chambre </label>
+          <input placeholder="Nombre de chambre" type="text" name="nombre_chambres" id="id_telephone" class="form-control" required>
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-row justify-content-between align-items-center ins1_form">
+        <div>
+          <label for="salle de bain">Nombre de Salle de Bain</label>
+          <input placeholder="Veuillez entrer la taille" type="text" name="salle_de_bain" id="salle_de_bain" class="form-control" required>
+        </div>
+
+        <div>
+          <label for="id_telephone">Nombre de garage </label>
+          <input placeholder="Nombre de garage" type="text" name="garrage" id="garrage" class="form-control" required>
+        </div>
+
+      </div>
+
+      <div class="d-flex flex-row justify-content-between align-items-center ins1_form">
+        <div>
+          <label for="photo_profil"> Photo de Couverture  :</label>
+          <input type="file" id="profil_photo" name="profil_photo" class="form-control">
+        </div>
+
+        <div>
+          <label for="photo_profil">Ajoutez Des Images :</label>
+          <input type="file" name="images" multiple class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Mettez une description a votre appartement</label>
+        <textarea name="description" cols="60" rows="10" class="form-control"></textarea>
+      </div> 
+
+      <div>
+        <button class="btn btn_ajouter" type="submit">Ajouter</button>
+      </div>
+    
+    </form>   
+  </div>
+
+
+</div>
+
+    
+{% endblock content %}

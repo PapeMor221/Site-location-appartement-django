@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<div class="banner">
+    <h1>Find Your Perfect Home</h1>
+    <p>Take Control and find your dream home today. We buy and sell more than 1000 properties and serve all of the world. Take a look at our selection</p>
+</div>
+
+   
+<div class="after_banner">
+  Découvrez Nos Plus Belles Appartement
+  <p class="after_banner_1">Trouver L'appartement Idéale pour Vous </p>
+</div>
+
+
+<div class="articles_block">
+    <div class="row">
+    {% for appartement in appartements %}
+      <div>
+        <div class="article">
+          <a href="{% url 'detail_appartement' appartement.id %}">
+            <div class="card">
+              <div class="card text-bg-primary">
+                <div class="x"><img src="{{ appartement.profil_photo.url }}" class="card-img" alt="..."></div>
+                <div class="card-img-overlay">
+                  <h4 class="card-title prix">{{ appartement.prix }} Fcfa / Mois</h4>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-title nom"> {{ appartement.nom }} </p>
+                <p class="card-text adresse">{{ appartement.adresse }}</p>
+                <div class="device">
+                  <div><i style="font-size: 20px;" class="fa-solid fa-bed"></i> {{ appartement.nombre_chambres }}</div>
+                  <div><i style="font-size: 20px;" class="fa-solid fa-bath"></i> {{ appartement.salle_de_bain }}</div>
+                  <div><i style="font-size: 20px;" class="fa-solid fa-car"></i> {{ appartement.garrage }}</div>
+                   
+                </div>
+                <div>
+                  <hr>
+                  <span class="props"> <i style="font-size: 15px;" class="fa-regular fa-user"></i> <a class="props" href="{% url 'visit_profil' appartement.proprietaire.id %}">{{ appartement.proprietaire.nom }}</a> </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+      {% if forloop.counter|divisibleby:3 %}
+        </div><div class="row">
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<div class="after_banner">
+  Rencontrez Nos Agents
+  <p class="after_banner_1">Discutez Avec Eux Ou Appellez Les ! </p>
+</div>
+
+<div class="Agents">
+
+  <div class="row1">
+    {% for proprietaire in proprietaires %}
+      <div>
+
+        <div style="width: 200px ;margin: auto;">
+          <img style="width: 200px; height: 200px; border-radius: 50%;" src="{{ proprietaire.profil_photo.url }}" class="card-img" alt="...">
+        </div>
+
+        <div style="width: 60%; margin: auto; text-align: center; margin-top: 20px;">
+          <h6 style="color: #007BFF; font-weight: 700;">{{ proprietaire.nom }}</h6>
+          <h6 style="font-weight: 600;">Company Agent, Sénégal</h6>
+          <h6 style="font-weight: 600;">{{ proprietaire.Specialite }}</h6>
+          <p style="margin-top: 30px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta justo eget risus consectetur,...</p> <br>
+          <a href="{% url 'visit_profil' proprietaire.id %}"><h6 style="font-weight: 600;">Visit Profil</h6></a> <br>
+        </div>
+        
+      </div>
+      {% if forloop.counter|divisibleby:4 %}
+        </div><div class="row1">
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</div>
+
+
+<div class="after_banner">
+  Les Témoignage Sur Nous
+  <p class="after_banner_1">Lorem ipsum dolor sit amet, consectetur adipisicing elit </p>
+</div>
+
+<div class="Temoignage">
+
+  <div class="Tem">
+    <i class="fa-regular fa-quote-left"></i>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur <br>
+      adipiscing elit, sed do eiusmod tempor <br>
+      incididunt ut labore et dolore magna <br>
+      aliqua. 
+    </div>
+    <div>
+      <img class="tem_img" src="" alt="">
+    </div>
+  </div>
+
+  <div class="Tem">
+    <i class="fa-regular fa-quote-left"></i>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur <br>
+      adipiscing elit, sed do eiusmod tempor <br>
+      incididunt ut labore et dolore magna <br>
+      aliqua. 
+    </div>
+    <div>
+      <img class="tem_img" src="" alt="">
+    </div>
+  </div>
+
+  <div class="Tem">
+    <i class="fa-regular fa-quote-left"></i>
+    <div>
+      Lorem ipsum dolor sit amet, consectetur <br>
+      adipiscing elit, sed do eiusmod tempor <br>
+      incididunt ut labore et dolore magna <br>
+      aliqua. 
+    </div>
+    <div>
+      <img class="tem_img" src="" alt="">
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+{% endblock content %}

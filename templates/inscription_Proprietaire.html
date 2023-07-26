@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+  
+{% load static %}
+
+
+
+<div class="ajout_app">
+
+  <div class="ajout_app_containt">
+
+    <form method="POST" action="{% url 'inscription_proprietaire' %}" enctype="multipart/form-data" class="ajout_app_form">
+      {% csrf_token %}
+
+      <h1>Inscription</h1>
+      <div id="trait"></div>
+
+      <div>
+        <label for="id_username">Nom complet</label>
+        <input placeholder="Veuillez entrer votre nom" type="text" name="Nom" id="id_Nom" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_username">Nom d'utilisateur</label>
+        <input placeholder="Veuillez entrer votre username" type="text" name="username" id="id_username" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_email">Email</label>
+        <input placeholder="Veuillez entrer votre email" type="email" name="email" id="id_email" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_telephone">Numéro de téléphone</label>
+        <input placeholder="Veuillez entrer votre tel" type="text" name="telephone" id="id_telephone" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_password1">Mot de passe</label>
+        <input placeholder="Veuillez entrer votre mdp" type="password" name="password1" id="id_password1" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="id_password2">Confirmation mot de passe</label>
+        <input placeholder="Veuillez confirmer votre email" type="password" name="password2" id="id_password2" class="form-control" required>
+      </div>
+
+      <div>
+        <label for="photo_profil">Photo de profil :</label>
+        <input type="file" id="profil_photo" name="profil_photo" class="form-control">
+      </div>
+
+      <div>
+        <button class="btn btn_ajouter" type="submit">S'inscrire</button>
+      </div>
+
+      <div id="option">
+        Vous avez déjà un compte ? <a href="{% url 'Proprietaire_login' %}" style="margin-left: 10px;"> Connectez-vous </a>
+        </div>
+    
+    </form>   
+  </div>
+
+
+</div>
+
+
+  
+{% endblock content %}

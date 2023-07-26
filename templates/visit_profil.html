@@ -1,0 +1,127 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div style="background-color: #F7F8F9;">
+
+<div class="mon_profil">
+
+
+    <div class="info_proprietaire">
+        <div class="card mb-3" style="border: none;">
+          <div class="row g-0" style="height: 420px;">
+            <div class="col-md-5">
+              <img style="height: 400px; width: 400px;" src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
+            </div>
+            <div class="col-md-7 mb-3" style=" margin-left: -200px;">
+              <div class="card-body">
+                <h1 style="font-weight: 700;" class="card-title">{{ proprietaire.nom }}</h1> 
+                <p> <span style="font-size: 20px; padding-right: 7px;"> 5 </span> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i></p>
+                <p>Company Agent at <a href="www.ept.sn">Ecole Polytechnique de Thies</a></p>
+                <hr>
+                <h6 style="font-weight: 700;">Agent licence : <span style="color: rgb(119, 115, 115);" >{{ proprietaire.licence }}</span></h6> <br>
+                <h6 style="font-weight: 700;">Taxe Number : <span style="color: rgb(119, 115, 115);">{{ proprietaire.Taxe_Number }}</span></h6> <br>
+                <h6 style="font-weight: 700;">Specialité : <span style="color: rgb(119, 115, 115);">{{ proprietaire.Specialite }}</span></h6> <br>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div style="background-color: white; margin-top: 40px; padding: 20px;" >
+
+        <h1 style="text-align: center; font-weight: 700; margin-top: 30px;">Ses Appartements</h1>
+
+        <div class="articles_block">
+            <div class="row">
+            {% for appartement in appartements %}
+              <div style="width: 40%;">
+                <div class="article">
+                  <a href="{% url 'detail_appartement' appartement.id %}">
+                    <div class="card">
+                      <div class="card text-bg-primary">
+                        <div class="x"><img src="{{ appartement.profil_photo.url }}" class="card-img" alt="..."></div>
+                        <div class="card-img-overlay">
+                          <h4 class="card-title prix">{{ appartement.prix }} Fcfa / Mois</h4>
+                        </div>
+                      </div>
+                      <div class="card-body">
+                        <p class="card-title nom"> {{ appartement.nom }} </p>
+                        <p class="card-text adresse">{{ appartement.adresse }}</p>
+                        <div class="device">
+                          <div><i style="font-size: 20px;" class="fa-solid fa-bed"></i> {{ appartement.nombre_chambres }}</div>
+                          <div><i style="font-size: 20px;" class="fa-solid fa-bath"></i> {{ appartement.salle_de_bain }}</div>
+                          <div><i style="font-size: 20px;" class="fa-solid fa-car"></i> {{ appartement.garrage }}</div>
+                           
+                        </div>
+                        <div>
+                          <hr>
+                          <span class="props"> <i style="font-size: 15px;" class="fa-regular fa-user"></i> <a class="props" href="">{{ appartement.proprietaire.nom }}</a> </span>
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              {% if forloop.counter|divisibleby:2 %}
+                </div><div class="row">
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+    </div>
+
+    <div class="d-flex flex-row justify-content-between " style=" margin-top: 40px; " >
+
+        <div style="background-color: white; width: 65%; padding: 30px;">
+            <h4>A Propos de {{ proprietaire.nom }}</h4>
+            <br>
+            <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus porta justo eget risus consectetur, non venenatis elit blandit. Mauris vehicula, libero a iaculis fringilla, ipsum ipsum tincidunt velit, ut convallis velit ante tincidunt dui. Sed iaculis ullamcorper pellentesque. Nam congue nisi eu orci laoreet, nec tristique dolor scelerisque. Aenean mauris sem, commodo et accumsan ac, dictum vitae sem. Sed bibendum nunc neque, in auctor enim ultricies nec. Proin ornare nibh libero, id euismod nulla aliquam et. Nam eget augue ut dolor sagittis feugiat. Nullam et nibh id lacus mollis laoreet eu et mi. <br> <br>
+            <span style="font-weight: 700;">Language:</span>  English, French, Wolof 
+            </p>
+        </div>
+
+        <div style="background-color: white; width: 30%; padding-top: 20px;">
+
+            <div style="width: 74%; margin: auto;">
+                <h4>Contact</h4>
+            </div>
+
+            <div style="width: 74%; margin: auto;">
+                <img style="height: 300px; width: 300px; margin: auto;" src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
+
+                <div style="margin-top: 30px;">
+                    <div class="d-flex flex-row justify-content-between align-items-center style="width: 100%; background-color: rebeccapurple;">
+                        <div style="font-weight: 700;">Mobile </div>
+                        <div>{{ proprietaire.telephone }}</div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-row justify-content-between align-items-center style="width: 100%; background-color: rebeccapurple;">
+                        <div style="font-weight: 700;">Email </div>
+                        <div>{{ proprietaire.email }}</div>
+                    </div>
+                    <hr>
+                    <div class="d-flex flex-row justify-content-between align-items-center style="width: 100%; background-color: rebeccapurple;">
+                        <div style="font-weight: 700;">WebSite </div>
+                        <div><a href="">www.polyappart.sn</a></div>
+                    </div>
+                    
+                </div>                
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</div>
+
+{% endblock content %}
+

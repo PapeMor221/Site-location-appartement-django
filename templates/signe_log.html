@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% load static %}
+
+<div class="signe_log_acceuil">
+
+    <div id="img1">
+        <img src="{% static 'img/user_profile_2.png' %}" alt="">
+    </div>
+
+    <div class="alpha">
+
+        <h1>Utilisateur non connecté</h1>
+        <div><a href="{% url 'inscription_proprietaire' %}">inscription</a>|<a href="{% url 'Proprietaire_login' %}">Connexion</a></div>
+
+    </div>
+
+</div>
+
+<style>
+    .signe_log_acceuil {
+        display: flex;
+        justify-content: space-around;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .alpha {
+        margin: auto;
+
+
+    }
+
+    .alpha a {
+        color: #305981;
+    }
+
+    .alpha div {
+        margin-left: 200px;
+    }
+
+    .alpha h1 {
+        font-weight: bold;
+        font-size: 50px;
+    }
+
+    #img1 {
+        margin: auto;
+    }
+</style>
+
+
+
+{% endblock content %}

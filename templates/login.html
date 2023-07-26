@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="ajout_app">
+
+    <div class="ajout_app_containt">
+  
+      <form method="POST" action="{% url 'Proprietaire_login' %}" enctype="multipart/form-data" class="ajout_app_form">
+        {% csrf_token %}
+  
+        <h1>Connexion</h1>
+        <div id="trait"></div>
+  
+        <div>
+            <label for="username">Nom d'utilisateur </label>
+            <input placeholder="Veuillez entrer votre username" type="text" name="username" id="username" class="form-control" required>
+        </div>
+  
+        <div>
+            <label for="password">Mot de passe</label>
+            <input placeholder="Veuillez entrer votre mot de passe" type="password" name="password1" id="password" class="form-control" required>
+        </div>
+
+        <div>
+            <button class="btn btn_ajouter" type="submit">Connexion</button>
+          </div>
+        
+        <div id="option1">
+            Vous n’avez pas de compte ? <a style="margin-left: 10px;" href="{% url 'inscription_proprietaire' %}"> inscrivez-vous </a>
+        </div>
+        
+      
+      </form>   
+    </div>
+  
+  
+  </div>
+  
+      
+ 
+
+
+{% endblock content %}
