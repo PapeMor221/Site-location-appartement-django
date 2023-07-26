@@ -77,9 +77,9 @@
 
     </div>
 
-    <div class="row d-flex flex-row justify-content-between " style=" margin-top: 40px; " >
 
-        <div class="col-sm-12 col-md-8" style="background-color: white; width: 65%; padding: 30px;">
+    <div class="row d-flex flex-row justify-content-between">
+        <div class="col-sm-12 col-md-8" style="background-color: white; padding: 30px;">
             <h4>A Propos de {{ proprietaire.nom }}</h4>
             <br>
             <p>
@@ -88,14 +88,13 @@
             </p>
         </div>
 
-        <div class="col-sm-12 col-md-4" style="background-color: white; width: 30%; padding-top: 20px;">
-
+        <div class="col-sm-12 col-md-4" style="background-color: white; padding-top: 20px;">
             <div style="width: 74%; margin: auto;">
                 <h4>Contact</h4>
             </div>
 
             <div style="width: 74%; margin: auto;">
-                <img style="height: 300px; width: 300px; margin: auto;" src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
+                <img class="col-sm-12" src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
 
                 <div style="margin-top: 30px;">
                     <div class="d-flex flex-row justify-content-between align-items-center style="width: 100%; background-color: rebeccapurple;">
@@ -115,9 +114,7 @@
                     
                 </div>                
             </div>
-
-        </div>
-
+        </div>            
     </div>
 
 
