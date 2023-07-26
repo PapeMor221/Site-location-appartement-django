@@ -1,1 +1,0 @@
-# Site-location-appartement-django
