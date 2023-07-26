@@ -12,33 +12,37 @@
 
     <div class="info_proprietaire">
         <div class="card mb-3" style="border: none;">
-          <div class="row g-0" style="height: 420px;">
-            <div class="col-md-5">
-              <img style="height: 400px; width: 400px;" src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
+          <div class="row g-0" >
+            <div class="col-sm-12 col-md-5">
+              <img class="col-sm-12"  src="{{ proprietaire.profil_photo.url }}" class="img-fluid rounded-start" alt="...">
             </div>
-            <div class="col-md-7 mb-3" style=" margin-left: -200px;">
+            <div class="col-sm-12 col-md-7 mb-3" >
               <div class="card-body">
-                <h1 style="font-weight: 700;" class="card-title">{{ proprietaire.nom }}</h1> 
+                <h2 style="font-weight: 700;" class="card-title">{{ proprietaire.nom }}</h2> 
                 <p> <span style="font-size: 20px; padding-right: 7px;"> 5 </span> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i> <i class="fa-solid fa-star" style="color: #FF703F; font-size: 19px;"></i></p>
                 <p>Company Agent at <a href="www.ept.sn">Ecole Polytechnique de Thies</a></p>
                 <hr>
                 <h6 style="font-weight: 700;">Agent licence : <span style="color: rgb(119, 115, 115);" >{{ proprietaire.licence }}</span></h6> <br>
                 <h6 style="font-weight: 700;">Taxe Number : <span style="color: rgb(119, 115, 115);">{{ proprietaire.Taxe_Number }}</span></h6> <br>
                 <h6 style="font-weight: 700;">Specialité : <span style="color: rgb(119, 115, 115);">{{ proprietaire.Specialite }}</span></h6> <br>
+                <div>
+                    <a href=""><button class="btn" style="background-color: #007BFF; color: white; font-weight: 700; margin-bottom: 20px;">Mes Messages</button> </a>
+                    <a href="{% url 'logout' %}"><button class="btn" style="background-color: #FF703F; color: white; font-weight: 700; margin-bottom: 20px;">Déconnexion</button> </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
     </div>
 
-    <div style="background-color: white; margin-top: 40px; padding: 20px;" >
+    <div style="background-color: white; margin-top: 40px; padding: 15px;" >
 
         <h1 style="text-align: center; font-weight: 700; margin-top: 30px;">Ses Appartements</h1>
 
-        <div class="articles_block">
-            <div class="row">
+        <div class="articles_block" style="width: 100%;">
+            <div class="row" style="margin: auto;">
             {% for appartement in appartements %}
-              <div style="width: 40%;">
+              <div class="col-xs-12 col-sm-12 col-md-4">
                 <div class="article">
                   <a href="{% url 'detail_appartement' appartement.id %}">
                     <div class="card">
@@ -52,9 +56,9 @@
                         <p class="card-title nom"> {{ appartement.nom }} </p>
                         <p class="card-text adresse">{{ appartement.adresse }}</p>
                         <div class="device">
-                          <div><i style="font-size: 20px;" class="fa-solid fa-bed"></i> {{ appartement.nombre_chambres }}</div>
-                          <div><i style="font-size: 20px;" class="fa-solid fa-bath"></i> {{ appartement.salle_de_bain }}</div>
-                          <div><i style="font-size: 20px;" class="fa-solid fa-car"></i> {{ appartement.garrage }}</div>
+                            <div style="margin-right: 20px;"> <i style="font-size: 20px;" class="fa-solid fa-bed"></i> {{ appartement.nombre_chambres }} </div>
+                            <div style="margin-right: 20px;"> <i style="font-size: 20px;" class="fa-solid fa-bath"></i> {{ appartement.salle_de_bain }} </div>
+                            <div style="margin-right: 20px;"> <i style="font-size: 20px;" class="fa-solid fa-car"></i> {{ appartement.garrage }} </div>
                            
                         </div>
                         <div>
@@ -66,18 +70,16 @@
                   </a>
                 </div>
               </div>
-              {% if forloop.counter|divisibleby:2 %}
-                </div><div class="row">
-              {% endif %}
+         
             {% endfor %}
           </div>
         </div>
 
     </div>
 
-    <div class="d-flex flex-row justify-content-between " style=" margin-top: 40px; " >
+    <div class="row d-flex flex-row justify-content-between " style=" margin-top: 40px; " >
 
-        <div style="background-color: white; width: 65%; padding: 30px;">
+        <div class="col-sm-12 col-md-8" style="background-color: white; width: 65%; padding: 30px;">
             <h4>A Propos de {{ proprietaire.nom }}</h4>
             <br>
             <p>
@@ -86,7 +88,7 @@
             </p>
         </div>
 
-        <div style="background-color: white; width: 30%; padding-top: 20px;">
+        <div class="col-sm-12 col-md-4" style="background-color: white; width: 30%; padding-top: 20px;">
 
             <div style="width: 74%; margin: auto;">
                 <h4>Contact</h4>

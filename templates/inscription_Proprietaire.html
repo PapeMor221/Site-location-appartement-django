@@ -7,9 +7,9 @@
 
 
 
-<div class="ajout_app">
+<div class="row ajout_app">
 
-  <div class="ajout_app_containt">
+  <div class="col-sm-12 col-md-6 ajout_app_containt">
 
     <form method="POST" action="{% url 'inscription_proprietaire' %}" enctype="multipart/form-data" class="ajout_app_form">
       {% csrf_token %}
