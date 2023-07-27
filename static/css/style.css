@@ -189,8 +189,8 @@ a:hover{
     margin-top: 100px;
 }
 
-.Tem{
-    width: 30%;
+.Tem > div{
+    width: 99%;
     background-color: #EDF9FF;
     padding: 40px;
 }
