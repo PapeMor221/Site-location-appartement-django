@@ -7,14 +7,10 @@
 
 <div class="signe_log_acceuil">
 
-    <div id="img1">
-        <img src="{% static 'img/user_profile_2.png' %}" alt="">
-    </div>
-
     <div class="alpha">
 
         <h1>Utilisateur non connecté</h1>
-        <div><a href="{% url 'inscription_proprietaire' %}">inscription</a>|<a href="{% url 'Proprietaire_login' %}">Connexion</a></div>
+        <div style="text-align: center;"><a href="{% url 'inscription_proprietaire' %}">inscription</a>|<a href="{% url 'Proprietaire_login' %}">Connexion</a></div>
 
     </div>
 
@@ -38,13 +34,11 @@
         color: #305981;
     }
 
-    .alpha div {
-        margin-left: 200px;
-    }
 
     .alpha h1 {
         font-weight: bold;
-        font-size: 50px;
+        font-size: 40px;
+        text-align: center;
     }
 
     #img1 {
